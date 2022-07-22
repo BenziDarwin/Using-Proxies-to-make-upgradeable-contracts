@@ -30,6 +30,7 @@ def test_proxy_upgrades():
     box_v2 = BoxV2.deploy(
         {"from": account},
     )
+    # Making a contract from an abi
     proxy_box = Contract.from_abi("BoxV2", proxy.address, BoxV2.abi)
     with pytest.raises(exceptions.VirtualMachineError):
         proxy_box.increment({"from": account})
